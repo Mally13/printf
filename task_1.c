@@ -149,9 +149,11 @@ void print_decimal(int number, int *strLength)
  */
 void handle_base(va_list printf_args, int *strLength)
 {
-	unsigned int number;
+	unsigned int number, digit1, digit2;
 
 	number = va_arg(printf_args, int);
+	digit1 = number;
+	digit2 = number;
 
 	if (number == 0)
 	{
@@ -160,5 +162,16 @@ void handle_base(va_list printf_args, int *strLength)
 		return;
 	}
 
-	print_decimal(number, strLength);
+	while (digit1 >= 10)
+		digit1 /= 10;
+	while (digit2 >= 100)
+		digit2 /= 10;
+	digit2 %= 10;
+
+	if (digit1 == 0 && (digit2 == 88 || digit2 == 120))
+		print_hexadecimal(number, strLength);
+	else if (digit1 == 0)
+		print_octal(number, strLength);
+	else
+		print_decimal(number, strLength);
 }
