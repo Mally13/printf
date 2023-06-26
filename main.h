@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 /* A header file containing typedefs and function prototypes */
 
 
