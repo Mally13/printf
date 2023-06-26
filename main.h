@@ -7,7 +7,8 @@
 
 
 /**
- * format_handler - Typedef for a function pointer to handle different specifiers
+ * format_handler - Typedef for a function pointer
+ * to handle different specifiers
  *
  * @printf_args: va_list arguments for the printf_args
  * @strLength: Previously printed characters length
