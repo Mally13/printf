@@ -41,6 +41,9 @@ int _printf(const char *format, ...)
 				case 'd':
 					handle_int(printf_args, &strLength);
 					break;
+				case 'i':
+					handle_base(printf_args, &strLength);
+					break;
 				default:
 					break;
 			}

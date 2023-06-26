@@ -17,7 +17,7 @@ typedef void (*format_handler)(va_list printf_args, int *strLength);
 /* function prototypes */
 int _putchar(char c);
 void handle_int(va_list printf_args, int *strLength);
-void handle_unsigned_int(va_list printf_args, int *strLength);
+void handle_base(va_list printf_args, int *strLength);
 int _printf(const char *format, ...);
 
 #endif
