@@ -20,5 +20,9 @@ int _putchar(char c);
 void handle_int(va_list printf_args, int *strLength);
 void handle_base(va_list printf_args, int *strLength);
 int _printf(const char *format, ...);
+void handle_string(va_list printf_args, int *strLength);
+void handle_char(va_list printf_args, int *strLength);
+void handle_binaryConv(va_list print_args, int *strLength);
+int binaryNumberConv(unsigned int decimalNumber);
 
 #endif

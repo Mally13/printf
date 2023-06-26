@@ -30,6 +30,15 @@ int _printf(const char *format, ...)
 				case 'i':
 					handle_base(printf_args, &strLength);
 					break;
+				case 'c':
+					handle_char(printf_args, &strLength);
+					break;
+				case 's':
+					handle_string(printf_args, &strLength);
+					break;
+				case 'b':
+					handle_binaryConv(printf_args, &strLength);
+					break;
 				default:
 					break;
 			}
@@ -40,8 +49,6 @@ int _printf(const char *format, ...)
 			strLength++;
 		}
 	}
-
-
 	va_end(printf_args);
 	return (strLength);
 }
