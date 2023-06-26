@@ -50,6 +50,8 @@ void handle_int(va_list printf_args, int *strLength)
 }
 /**
  * print_octal - prints base 8
+ * @number: integer to be printed
+ * @strLength: length of printed characters
  */
 void print_octal(int number, int *strLength)
 {
@@ -79,6 +81,8 @@ void print_octal(int number, int *strLength)
 
 /**
  * print_hexadecimal - Prints base 16
+ * @number: Integer to be printed
+ * @strLength: length of printed characters
  */
 void print_hexadecimal(int number, int *strLength)
 {
@@ -107,6 +111,8 @@ void print_hexadecimal(int number, int *strLength)
 
 /**
  * print_decimal - Prints base 10
+ * @number: number to be printed
+ * @strLength: length of already printed characters
  */
 void print_decimal(int number, int *strLength)
 {

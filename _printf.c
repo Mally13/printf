@@ -1,11 +1,11 @@
 #include "main.h"
 #include <stdarg.h>
 /**
- * * _printf - produces output according to format
- * * @format: String Format
- * * @...: Additional arguments
- * * Return: Return string length
- * */
+ * _printf - produces output according to format
+ * @format: String Format
+ * @...: Additional arguments
+ * Return: Return string length
+ */
 int _printf(const char *format, ...)
 {
 	int character, counter = 0, strLength = 0;
@@ -20,20 +20,6 @@ int _printf(const char *format, ...)
 			format++;
 			switch (*format)
 			{
-				case 'c':
-					character = va_arg(printf_args, int);
-					_putchar(character);
-					strLength++;
-					break;
-				case 's':
-					string = va_arg(printf_args, char *);
-					while (string[counter])
-					{
-						_putchar(*string);
-						strLength++;
-						string++;
-					}
-					break;
 				case '%':
 					_putchar('%');
 					strLength++;
