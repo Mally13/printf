@@ -47,5 +47,5 @@ int binaryNumberConv(unsigned int decimalNumber)
 		binaryNum = 0;
 	else
 		binaryNum = decimalNumber % 2 + 10 * (binaryNumberConv(decimalNumber / 2));
-	return (binaryNumber);
+	return (binaryNum);
 }

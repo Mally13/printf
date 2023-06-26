@@ -8,8 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int character, counter = 0, strLength = 0;
-	const char *string;
+	int strLength = 0;
 	va_list printf_args;
 
 	va_start(printf_args, format);
