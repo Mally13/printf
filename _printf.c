@@ -8,8 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int character, counter = 0, strLength = 0;
-	const char *string;
+	int strLength = 0;
 	va_list printf_args;
 
 	va_start(printf_args, format);
@@ -30,6 +29,15 @@ int _printf(const char *format, ...)
 				case 'i':
 					handle_base(printf_args, &strLength);
 					break;
+				case 'c':
+					handle_char(printf_args, &strLength);
+					break;
+				case 's':
+					handle_string(printf_args, &strLength);
+					break;
+				case 'b':
+					handle_binaryConv(printf_args, &strLength);
+					break;
 				default:
 					break;
 			}
@@ -40,8 +48,6 @@ int _printf(const char *format, ...)
 			strLength++;
 		}
 	}
-
-
 	va_end(printf_args);
 	return (strLength);
 }
