@@ -6,28 +6,23 @@
 */
 void handle_char(va_list printf_args, int *strLength)
 {
-	int character;
-
-	character = va_arg(printf_args, int);
-	putchar(character);
+	_putchar(va_arg(printf_args, int));
 	(*strLength)++;
 }
 
 /**
 * handle_string - Prints string to stdout
-* @printf_args: Varargs usage
+* printf_args: Varargs usage
 * @strLength: String Length
 */
 void handle_string(va_list printf_args, int *strLength)
 {
-	const char *string;
-	int counter = 0;
+	char *string;
 
 	string = va_arg(printf_args, char *);
-	while (string[counter])
-	{
-		putchar(*string);
-		strLength++;
-		string++;
-	}
+	if (!string)
+		string = "(null)";
+	_puts(string);
+	(*strLength)++;
+
 }
