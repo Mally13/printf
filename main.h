@@ -16,10 +16,15 @@
  */
 typedef void (*format_handler)(va_list printf_args, int *strLength);
 
+
 /* function prototypes */
 int _putchar(char c);
 void handle_int(va_list printf_args, int *strLength);
 void handle_base(va_list printf_args, int *strLength);
+void handle_unsignedDecimal(va_list printf_args, int *strLength);
+void handle_octal(va_list printf_args, int *strLength);
+void handle_lowerCaseHex(va_list printf_args, int *strLength);
+void handle_upperCaseHex(va_list printf_args, int *strLength);
 int _printf(const char *format, ...);
 void handle_string(va_list printf_args, int *strLength);
 void handle_char(va_list printf_args, int *strLength);

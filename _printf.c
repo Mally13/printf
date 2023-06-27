@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+
 /**
  * _printf - produces output according to format
  * @format: String Format
@@ -17,6 +18,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			switch (*format)
+			{
 				case '%':
 					_putchar('%');
 					strLength++;
@@ -36,8 +38,20 @@ int _printf(const char *format, ...)
 				case 'b':
 					handle_binaryConv(printf_args, &strLength);
 					break;
+				case 'u':
+					handle_unsignedDecimal(printf_args, &strLength);
+					break;
+				case 'o':
+					handle_octal(printf_args, &strLength);
+					break;
+				case 'x':
+					handle_lowerCaseHex(printf_args, &strLength);
+					break;
+				case 'X':
+					handle_upperCaseHex(printf_args, &strLength);
 				default:
 					break;
+			}
 		}
 		else
 		{
