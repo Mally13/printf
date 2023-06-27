@@ -37,6 +37,6 @@ void handle_special(va_list printf_args, int *strLength);
 void handle_specifier(const char *format, va_list printf_args, int *strLength);
 char *addressConv(unsigned long int num);
 void handle_address(va_list printf_args, int *strLength);
-
+int _puts(char *c);
 
 #endif
