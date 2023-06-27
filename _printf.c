@@ -35,6 +35,9 @@ void handle_specifier(const char *format, va_list printf_args, int *strLength)
 		case 'o':
 			handle_octal(printf_args, strLength);
 			break;
+		case 'p':
+			handle_address(printf_args, strLength);
+			break;
 		case 'x':
 			handle_lowerCaseHex(printf_args, strLength);
 			break;
