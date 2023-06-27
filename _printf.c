@@ -43,6 +43,14 @@ void handle_specifier(const char *format, va_list printf_args, int *strLength)
 			break;
 		case 'X':
 			handle_upperCaseHex(printf_args, strLength);
+			break;
+		case 'S':
+			format++;
+			_putchar('/');
+			(*strLength)++;
+			_putchar('x');
+			(*strLength)++;
+			break;
 		default:
 			break;
 	}

@@ -118,6 +118,12 @@ void print_decimal(int number, int *strLength)
 {
 	unsigned int numLength = 0, holder, divisor, digit, i;
 
+	if (number < 0)
+	{
+		_putchar('-');
+		(*strLength)++;
+		number = -number;
+	}
 	holder = number;
 	while (holder != 0)
 	{
@@ -149,7 +155,7 @@ void print_decimal(int number, int *strLength)
  */
 void handle_base(va_list printf_args, int *strLength)
 {
-	unsigned int number, digit1, digit2;
+	int number, digit1, digit2;
 
 	number = va_arg(printf_args, int);
 	digit1 = number;
@@ -168,7 +174,7 @@ void handle_base(va_list printf_args, int *strLength)
 		digit2 /= 10;
 	digit2 %= 10;
 
-	if (digit1 == 0 && (digit2 == 88 || digit2 == 120))
+	if (digit1 == 0 && digit2 == 88)
 		print_hexadecimal(number, strLength);
 	else if (digit1 == 0)
 		print_octal(number, strLength);
