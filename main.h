@@ -27,5 +27,7 @@ int binaryNumberConv(unsigned int decimalNumber);
 void print_octal(int number, int *strLength);
 void print_hexadecimal(int number, int *strLength);
 void print_decimal(int number, int *strLength);
+char *addressConv(unsigned long int num);
+void handle_address(va_list printf_args, int *strLength);
 
 #endif
