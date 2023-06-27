@@ -12,7 +12,7 @@ void handle_specifier(const char *format, va_list printf_args, int *strLength)
 	{
 		case '%':
 			_putchar('%');
-			strLength++;
+			(*strLength)++;
 			break;
 		case 'd':
 			handle_int(printf_args, strLength);
