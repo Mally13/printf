@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define BINARYBUFF 50
 #include <stdio.h>
 #include <stdarg.h>
 /* A header file containing typedefs and function prototypes */
@@ -36,5 +37,6 @@ void handle_octal(va_list printf_args, int *strLength);
 void handle_lowerCaseHex(va_list printf_args, int *strLength);
 void handle_upperCaseHex(va_list printf_args, int *strLength);
 int _puts(char *c);
+char *numberConvert(unsigned long int number, int index, int base);
 
 #endif

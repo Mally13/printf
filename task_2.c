@@ -6,46 +6,38 @@
 */
 void handle_binaryConv(va_list printf_args, int *strLength)
 {
-	int decimalNumber, numLength = 0, divisor, i, digit, holder, binaryNumber;
+	int decimalNumber;
+	char *binaryStr;
 
-	decimalNumber = va_arg(printf_args,unsigned int);
-	binaryNumber = binaryNumberConv(decimalNumber);
-	holder = binaryNumber;
+	decimalNumber = va_arg(printf_args, int);
+	binaryStr = numberConvert(decimalNumber, 2, 0);
 
-	while (holder != 0)
-	{
-		holder /= 10;
-		numLength++;
-	}
-
-	divisor = 1;
-	for (i = 1; i < numLength; i++)
-		divisor *= 10;
-
-	while (divisor > 0)
-	{
-		digit = binaryNumber / divisor;
-		_putchar('0' + digit);
-		(*strLength)++;
-		binaryNumber %= divisor;
-		divisor /= 10;
-	}
-
+	_puts(binaryStr);
+	(*strLength)++;
 }
-
 /**
-* binaryNumberConv - Binary conversion
-* @decimalNumber: Parameter
+* numberConvert - Binary conversion
+* @number: Parameter
+* @index: second parameter
+* @base: Base index
 * Return: The binsry number
 */
 
-int binaryNumberConv(unsigned int decimalNumber)
+char *numberConvert(unsigned long int number, int index, int base)
 {
-	int binaryNum;
+	static char *rep;
+	static char buffer[BINARYBUFF];
+	char *numberHolder;
 
-	if (decimalNumber == 0)
-		binaryNum = 0;
-	else
-		binaryNum = decimalNumber % 2 + 10 * (binaryNumberConv(decimalNumber / 2));
-	return (binaryNum);
+	rep = (base)
+		? "0123456789abcdef"
+		: "0123456789ABCDEF";
+	numberHolder = &buffer[49];
+	*numberHolder = '\0';
+	do {
+		*--numberHolder = rep[number % index];
+		number /= index;
+	} while (number != 0);
+
+	return (numberHolder);
 }
