@@ -8,7 +8,7 @@ void handle_binaryConv(va_list printf_args, int *strLength)
 {
 	int decimalNumber, numLength = 0, divisor, i, digit, holder, binaryNumber;
 
-	decimalNumber = va_arg(printf_args, int);
+	decimalNumber = va_arg(printf_args,unsigned int);
 	binaryNumber = binaryNumberConv(decimalNumber);
 	holder = binaryNumber;
 
