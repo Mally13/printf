@@ -33,5 +33,6 @@ void handle_unsignedDecimal(va_list printf_args, int *strLength);
 void handle_octal(va_list printf_args, int *strLength);
 void handle_lowerCaseHex(va_list printf_args, int *strLength);
 void handle_upperCaseHex(va_list printf_args, int *strLength);
+int _puts(char c);
 
 #endif
