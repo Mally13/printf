@@ -33,5 +33,5 @@ int binaryNumberConv(unsigned int decimalNumber);
 void print_octal(int number, int *strLength);
 void print_hexadecimal(int number, int *strLength);
 void print_decimal(int number, int *strLength);
-
+void handle_specifier(const char *format, va_list printf_args, int *strLength);
 #endif

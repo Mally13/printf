@@ -2,7 +2,7 @@
 
 /**
  * handle_octal - handles 'o' fomart specifier
- * @printf_args:va_list argument for printf_args
+ * @printf_args:va_list argument for printf
  * @strLength:Number of already printed character in a string
  */
 void handle_octal(va_list printf_args, int *strLength)
@@ -40,7 +40,9 @@ void handle_octal(va_list printf_args, int *strLength)
 	}
 }
 /**
- * handle_unsignedInt -
+ * handle_unsignedDecimal - handle 'u' format specifier
+ * @printf_args: va_list arguments for printf
+ * @strLength: Number of already printed characters
  */
 void handle_unsignedDecimal(va_list printf_args, int *strLength)
 {
@@ -77,7 +79,9 @@ void handle_unsignedDecimal(va_list printf_args, int *strLength)
 	}
 }
 /**
- * handle_lowerCaseHex
+ * handle_lowerCaseHex - handles 'x' specifier
+ * @printf_args: va_list arguments for printf
+ * @strLength: Number of already printed characters
  */
 void handle_lowerCaseHex(va_list printf_args, int *strLength)
 {
@@ -108,7 +112,7 @@ void handle_lowerCaseHex(va_list printf_args, int *strLength)
 	while (divisor > 0)
 	{
 		digit = number / divisor;
-	
+
 		if (digit < 10)
 			_putchar('0' + digit);
 		else
@@ -117,12 +121,14 @@ void handle_lowerCaseHex(va_list printf_args, int *strLength)
 		}
 		(*strLength)++;
 		number %= divisor;
-		divisor /= 16;		
+		divisor /= 16;
 	}
 }
 /**
- *  * handle_lowerCaseHex
- *   */
+ * handle_upperCaseHex - handles specifier 'X'
+ * @printf_args: va_list arguments for printf
+ * @strLength: Number of already printed characters
+ */
 void handle_upperCaseHex(va_list printf_args, int *strLength)
 {
 	unsigned int number, numLength = 0, holder, divisor, digit, i;
