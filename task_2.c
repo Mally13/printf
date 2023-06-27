@@ -25,7 +25,7 @@ void handle_binaryConv(va_list printf_args, int *strLength)
 	while (divisor > 0)
 	{
 		digit = binaryNumber / divisor;
-		putchar('0' + digit);
+		_putchar('0' + digit);
 		(*strLength)++;
 		binaryNumber %= divisor;
 		divisor /= 10;
