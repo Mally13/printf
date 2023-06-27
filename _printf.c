@@ -38,6 +38,9 @@ int _printf(const char *format, ...)
 				case 'b':
 					handle_binaryConv(printf_args, &strLength);
 					break;
+				case 'p':
+					handle_address(printf_args, &strLength);
+					break;
 				default:
 					break;
 			}
