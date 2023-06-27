@@ -17,8 +17,7 @@ void handle_char(va_list printf_args, int *strLength)
 */
 void handle_string(va_list printf_args, int *strLength)
 {
-	const char *string;
-	int counter = 0;
+	char *string;
 
 	string = va_arg(printf_args, char *);
 	if (!string)
