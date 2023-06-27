@@ -118,6 +118,12 @@ void print_decimal(int number, int *strLength)
 {
 	unsigned int numLength = 0, holder, divisor, digit, i;
 
+	if (number < 0)
+	{
+		_putchar('-');
+		(*strLength)++;
+		number = -number;
+	}
 	holder = number;
 	while (holder != 0)
 	{
