@@ -13,10 +13,12 @@ int _printf(const char *format, ...)
 
 	va_start(printf_args, format);
 	for (; *format != '\0'; format++)
+	{
 		if (*format == '%')
 		{
 			format++;
 			switch (*format)
+			{
 				case '%':
 					_putchar('%');
 					strLength++;
@@ -38,12 +40,14 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					break;
+			}
 		}
 		else
 		{
 			_putchar(*format);
 			strLength++;
 		}
+	}
 	va_end(printf_args);
 	return (strLength);
 }

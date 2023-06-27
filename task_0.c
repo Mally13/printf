@@ -9,7 +9,7 @@ void handle_char(va_list printf_args, int *strLength)
 	int character;
 
 	character = va_arg(printf_args, int);
-	_putchar(character);
+	putchar(character);
 	(*strLength)++;
 }
 
@@ -26,7 +26,7 @@ void handle_string(va_list printf_args, int *strLength)
 	string = va_arg(printf_args, char *);
 	while (string[counter])
 	{
-		_putchar(*string);
+		putchar(*string);
 		strLength++;
 		string++;
 	}
