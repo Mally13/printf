@@ -10,3 +10,18 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
+
+/**
+ * _puts - Puts strings
+ * @str: String
+ * Return: Str Length
+ */
+int _puts(char *str)
+{
+	int counter;
+
+	for (counter = 0; str[counter] != '\0'; counter++)
+		putchar(str[counter]);
+
+	return (counter);
+}

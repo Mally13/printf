@@ -29,5 +29,9 @@ void print_hexadecimal(int number, int *strLength);
 void print_decimal(int number, int *strLength);
 char *addressConv(unsigned long int num);
 void handle_address(va_list printf_args, int *strLength);
+void handle_unsignedDecimal(va_list printf_args, int *strLength);
+void handle_octal(va_list printf_args, int *strLength);
+void handle_lowerCaseHex(va_list printf_args, int *strLength);
+void handle_upperCaseHex(va_list printf_args, int *strLength);
 
 #endif
