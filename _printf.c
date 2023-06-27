@@ -58,6 +58,7 @@ int _printf(const char *format, ...)
 
 	va_start(printf_args, format);
 	for (; *format != '\0'; format++)
+	{
 		if (*format == '%')
 		{
 			format++;
@@ -68,6 +69,7 @@ int _printf(const char *format, ...)
 			_putchar(*format);
 			strLength++;
 		}
+	}
 	va_end(printf_args);
 	return (strLength);
 }
