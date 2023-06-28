@@ -15,6 +15,12 @@ void handle_int(va_list printf_args, int *strLength)
 	number = va_arg(printf_args, int);
 	holder = number;
 
+	if (number == 0)
+	{
+		_putchar('0');
+		(*strLength)++;
+		return;
+	}
 	if (number < 0)
 	{
 		_putchar('-');
@@ -51,6 +57,12 @@ void print_octal(int number, int *strLength)
 	unsigned int numLength = 0, holder, divisor, digit, i;
 
 	holder = number;
+	if (number == 0)
+	{
+		_putchar('0');
+		(*strLength)++;
+		return;
+	}
 	while (holder != 0)
 	{
 		holder /= 8;
@@ -82,6 +94,12 @@ void print_hexadecimal(int number, int *strLength)
 	unsigned int numLength = 0, holder, divisor, digit, i;
 
 	holder = number;
+	if (number == 0)
+	{
+		_putchar('0');
+		(*strLength)++;
+		return;
+	}
 	while (holder != 0)
 	{
 		holder /= 16;
