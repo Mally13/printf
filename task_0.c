@@ -6,8 +6,15 @@
 */
 void handle_char(va_list printf_args, int *strLength)
 {
-	_putchar(va_arg(printf_args, int));
-	(*strLength)++;
+	int character;
+
+	character = va_arg(printf_args, int);
+	if (character)
+	{
+		_putchar(character);
+		if (*strLength)
+			(*strLength)++;
+	}
 }
 
 /**
