@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h>
 /**
  * handle_int - handles 'd' format specifier for _printf
  * @printf_args: va_list argument for printf_args
@@ -10,10 +10,10 @@
 
 void handle_int(va_list printf_args, int *strLength)
 {
-	int number, numLength = 0, holder, divisor, digit, i;
+	int number, digit;
+	long longNumber, holder, numLength = 0, divisor, i;
 
 	number = va_arg(printf_args, int);
-	holder = number;
 
 	if (number == 0)
 	{
@@ -21,14 +21,17 @@ void handle_int(va_list printf_args, int *strLength)
 		(*strLength)++;
 		return;
 	}
-	if (number < 0)
+	longNumber = (long)number;
+	holder = longNumber;
+	if (longNumber < 0)
 	{
 		_putchar('-');
+		(*strLength)++;
 		holder = -holder;
-		number = -number;
+		longNumber = -longNumber;
 	}
 
-	while (holder != 0)
+	while (holder > 0)
 	{
 		holder /= 10;
 		numLength++;
@@ -40,10 +43,10 @@ void handle_int(va_list printf_args, int *strLength)
 
 	while (divisor > 0)
 	{
-		digit = number / divisor;
+		digit = longNumber / divisor;
 		_putchar('0' + digit);
 		(*strLength)++;
-		number %= divisor;
+		longNumber %= divisor;
 		divisor /= 10;
 	}
 }
