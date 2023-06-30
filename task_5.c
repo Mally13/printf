@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * handle_specfier - Prints string and handles non-printable
+ * handle_S - Prints string and handles non-printable
  * characters
  * @printf_args: va_list arguments for printf
  * @strLength: Number of already printed characters
  */
-void handle_special(va_list printf_args, int *strLength)
+void handle_S(va_list printf_args, int *strLength)
 {
 	const char *string;
 	unsigned int hexVal, digit, divisor, i;

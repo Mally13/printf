@@ -8,44 +8,30 @@
  */
 void handle_specifier(const char *format, va_list printf_args, int *strLength)
 {
-	switch (*format)
+	unsigned long i = 0;
+	FHandler_t handlers[] = {
+		{'%', handle_percent},
+		{'d', handle_int},
+		{'i', handle_base},
+		{'c', handle_char},
+		{'s', handle_string},
+		{'b', handle_binaryConv},
+		{'u', handle_unsignedDecimal},
+		{'o', handle_octal},
+		{'p', handle_address},
+		{'x', handle_lowerCaseHex},
+		{'X', handle_upperCaseHex},
+		{'S', handle_S}
+	};
+
+	while (i < sizeof(handlers) / sizeof(handlers[0]))
 	{
-		case '%':
-			_putchar('%');
-			(*strLength)++;
-			break;
-		case 'd':
-			handle_int(printf_args, strLength);
-			break;
-		case 'i':
-			handle_base(printf_args, strLength);
-			break;
-		case 'c':
-			handle_char(printf_args, strLength);
-			break;
-		case 's':
-			handle_string(printf_args, strLength);
-			break;
-		case 'b':
-			handle_binaryConv(printf_args, strLength);
-			break;
-		case 'u':
-			handle_unsignedDecimal(printf_args, strLength);
-			break;
-		case 'o':
-			handle_octal(printf_args, strLength);
-			break;
-		case 'p':
-			handle_address(printf_args, strLength);
-			break;
-		case 'x':
-			handle_lowerCaseHex(printf_args, strLength);
-			break;
-		case 'X':
-			handle_upperCaseHex(printf_args, strLength);
-			break;
-		default:
-			break;
+		if (*format == handlers[i].specifier)
+		{
+			handlers[i].format_handler(printf_args, strLength);
+			return;
+		}
+		i++;
 	}
 }
 

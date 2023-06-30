@@ -26,3 +26,15 @@ void handle_string(va_list printf_args, int *strLength)
 	(*strLength)++;
 
 }
+
+/**
+ * handle_percent - Prints percent
+ * printf_args: Varargs usage
+ * @strLength: String Length
+ */
+void handle_percent(va_list printf_args, int *strLength)
+{
+	_putchar('%');
+	(*strLength)++;
+	_putchar(va_arg(printf_args, int));
+}
