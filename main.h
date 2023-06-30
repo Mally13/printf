@@ -39,6 +39,8 @@ void handle_lowerCaseHex(va_list printf_args, int *strLength);
 void handle_octal(va_list printf_args, int *strLength);
 void handle_unsignedDecimal(va_list printf_args, int *strLength);
 int _puts(char *c);
+int toAscii(char character);
+void printNewHex(int newHex, int *strLength);
 void handle_S(va_list printf_args, int *strLength);
 char *numberConvert(unsigned long int number, int index, int base);
 

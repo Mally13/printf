@@ -1,15 +1,55 @@
 #include "main.h"
 /**
- * toHex - converts a sting to hex value
+ * toAscii - converts a char to ascii value
  * @character: char to be converted
  * Return: Hex value of capital char
  */
-int toHex(char character)
+int toAscii(char character)
 {
-	int hexValue;
+	int asciiValue;
 
-	hexValue = character - 'A' + 10;
-	return (hexValue);
+	asciiValue = (int) character;
+	return (asciiValue);
+}
+/**
+ * printNewHex - prints Hex
+ * @newHex: value to be printed
+ * @strLength: value of printed characters
+ */
+void printNewHex(int newHex, int *strLength)
+{
+	int j, digit, divisor, numLength = 0, holder;
+
+	holder = newHex;
+	while (holder > 0)
+	{
+		holder /= 16;
+		numLength++;
+	}
+	if (numLength == 1)
+	{
+		_putchar('0');
+		(*strLength)++;
+	}
+	divisor = 1;
+	for (j = 1; j < numLength; j++)
+		divisor *= 16;
+	while (divisor > 0)
+	{
+		digit = newHex / divisor;
+		if (digit > 10)
+		{
+			_putchar('0' + digit);
+			(*strLength)++;
+		}
+		else
+		{
+			_putchar('A' + digit - 10);
+			(*strLength)++;
+		}
+		newHex %= divisor;
+		divisor /= 16;
+	}
 }
 /**
  * handle_S - Prints string and handles non-printable
@@ -20,8 +60,7 @@ int toHex(char character)
 void handle_S(va_list printf_args, int *strLength)
 {
 	char *string;
-	int i, j, newHex, digit, divisor, numLength = 0, holder;
-
+	int i, newHex;
 
 	string = va_arg(printf_args, char *);
 	if (!string)
@@ -33,24 +72,8 @@ void handle_S(va_list printf_args, int *strLength)
 			_putchar('\\');
 			_putchar('x');
 			(*strLength) += 2;
-			newHex = toHex(string[i]);
-			holder = newHex;
-			while (holder > 0)
-			{
-				holder /= 16;
-				numLength++;
-			}
-			divisor = 1;
-			for (j = 0; j < numLength; j++)
-				divisor *= 16;
-			while (divisor > 0)
-			{
-				digit = newHex / divisor;
-				_putchar('0' + digit);
-				(*strLength)++;
-				newHex %= divisor;
-				divisor /= 16;
-			}
+			newHex = toAscii(string[i]);
+			printNewHex(newHex, strLength);
 		}
 		else
 		{
