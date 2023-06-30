@@ -37,7 +37,7 @@ void printNewHex(int newHex, int *strLength)
 	while (divisor > 0)
 	{
 		digit = newHex / divisor;
-		if (digit > 10)
+		if (digit < 10)
 		{
 			_putchar('0' + digit);
 			(*strLength)++;
